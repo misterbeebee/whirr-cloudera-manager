@@ -1,3 +1,6 @@
 com.cloudera.whirr.scm.CdhClientHandler
 com.cloudera.whirr.scm.ScmNodeHandler
 com.cloudera.whirr.scm.ScmServerHandler
+com.cloudera.whirr.clouderaManager.CdhClientHandler
+com.cloudera.whirr.clouderaManager.ClouderaManagerNodeHandler
+com.cloudera.whirr.clouderaManager.ClouderaManagerServerHandler

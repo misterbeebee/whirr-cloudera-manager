@@ -9,7 +9,7 @@ This method uses Whirr to start a cluster with
  * one node for running CDH client programs (e.g. to launch MapReduce jobs), and
  * a user-selectable number of nodes for the Hadoop cluster itself
 
-Once Whirr has started the cluster, you use SCM Express in the usual way.
+Once Whirr has started the cluster, you use Cloudera Manager in the usual way.
  
 Note that you can omit the CDH client node if you want to run programs entirely
 from Hue.
@@ -39,7 +39,7 @@ Create a password-less SSH keypair for Whirr to use:
 
 % ssh-keygen -t rsa -P '' -f ~/.ssh/id_rsa_scm
 
-2. Install the Whirr SCM Express Service Plugin
+2. Install the Whirr Cloudera Manager Plugin
 ===============================================
 
 Download the plugin from
@@ -55,7 +55,7 @@ The following command will start a cluster with 5 Hadoop nodes. To change this
 number edit the scm-ec2.properties file. Edit the same file if you don't want to
 launch a CDH client node.
 
-% whirr launch-cluster --config scm-ec2.properties
+% whirr launch-cluster --config cloudera-manager-ec2.properties
 
 Whirr will report progress to the console as it runs. The command will exit when
 the cluster is ready to be used.
@@ -98,4 +98,4 @@ Now you can interact with the cluster, e.g. to list files in HDFS:
 Finally, when you want to shutdown the cluster, run the following command. Note
 that all data and state stored on the cluster will be lost.
 
-% whirr destroy-cluster --config scm-ec2.properties
+% whirr destroy-cluster --config cloudera-manager-ec2.properties
