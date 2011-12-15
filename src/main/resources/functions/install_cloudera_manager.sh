@@ -1,15 +1,16 @@
 set -x
-function install_scm() {
+function install_cloudera_manager() {
   yum install -y expect
-  wget http://archive.cloudera.com/scm/installer/latest/cloudera-manager-installer.bin
-  chmod u+x cloudera-manager-installer.bin
+  installer=cloudera-manager-installer.bin
+  wget http://archive.cloudera.com/scm/installer/latest/$installer
+  chmod u+x $installer
   
   # Need to use expect for the install since script expects user to hit enter
   # at the end
   cat >> install <<END
 #!/usr/bin/expect -f
 set timeout 300
-spawn ./scm-installer.bin --ui=stdio --noprompt --noreadme --nooptions --i-agree-to-all-licenses
+spawn ./$installer --ui=stdio --noprompt --noreadme --nooptions --i-agree-to-all-licenses
 expect "*hit enter*"
 send -- "\n"
 expect EOF
